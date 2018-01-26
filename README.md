@@ -1,7 +1,9 @@
 
 <font color="#450cc4" size = "3px">	
+	
+# Reference for Ztool
 
-##How to install
+## How to install
 
 use the follow command to install all the tools.
 
@@ -11,199 +13,55 @@ use the foloow command to install a special tool.
 
 	sh setup.sh mptools
 	
-##How to use tools
+## How to use tools
+## gitf命令集
+### gitf feature
+- ```gitf feature [分支名] go```亦可直接输入```ff [分支名] go```:开始一个新的feature。
+- ```gif feature [分支名] pr```亦可直接输入```ff [分支名] pr```：提pull request到develop。
+- ```gif feature [分支名] ok```亦可直接输入```ff [分支名] ok```：合并feature到develop，同时删除该feature。
+- 示例：
+```
+$ ff IOS-9-pageRefactor go
+$ ff IOS-9-pageRefactor pr
+$ ff IOS-9-pageRefactor ok
+```
+
+### gitf bugfix
+- ```gif bugfix [分支名] go```亦可直接输入```fb [分支名] go```：开始一个新的bugfix。
+- ```gif bugfix [分支名] pr```亦可直接输入```fb [分支名] pr```：提交pull request到develop或release。
+- ```gif bugfix [分支名] ok```亦可直接输入```fb [分支名] ok```：合并bugfix到develop或release，同时删除该bugfix。
+- 示例：
+```
+$ fb MGV5-20538-ringFail go
+$ fb MGV5-20538-ringFail pr
+$ fb MGV5-20538-ringFail ok
+```
+
+### gitf release
+- ```gif release [分支名] go```亦可直接输入```fr [分支名] go```：开始一个新的release。
+- ```gif release [分支名] pr```亦可直接输入```fr [分支名] pr```：提交pull request到master和develop。
+- ```gif release [分支名] ok```亦可直接输入```fr [分支名] ok```：合并release到master和develop，同时给master打tag，删除该release。
+- 示例：
+```
+$ fr 6.0.0 go
+$ fr 6.0.0 pr
+$ fr 6.0.0 ok
+```
+
+### gitf hotfix
+- ```gif hotfix [分支名] go```亦可直接输入```fh [分支名] go```：开始一个hotfix。
+- ```gif hotfix [分支名] pr```亦可直接输入```fh [分支名] pr```：提交pull request到master。
+- ```gif hotfix [分支名] ok```亦可直接输入```fh [分支名] ok```：合并到master和develop，同时删除该hotfix。
+- 示例：
+```
+$ fh 6.0.1 go
+$ fh 6.0.1 pr
+$ fh 6.0.1 ok
+```
+
+## gitz命令集
 
-#gitz 
 
-[TOC]
-
-##安装##
-
-打开终端，执行如下命令：
-
->$ git clone https://github.com/peter-m-shi/ztool.git $HOME/ztool;sh $HOME/ztool/setup.sh
-
-
-
-##gitf工具##
-
-gitf工具包含了如下几个命令：
-
-
-
-**gif feature**（亦可简写为**ff**）
-
-
-
-功能：
-
-
-
-（1）从develop拉取feature分支，开始工作；
-
-（2）完成开发，合并回原分支.
-
-
-
-示例：
-
-
-
->$ ==ff== function1 ==go==
-
-
-
->$ ==ff== function1 ==ok==
-
-
-
-Notes:
-
-（1）根据提示选择从develop，develop-A，develop-B拉取分支。
-
-（2）上述命令中的"function1"为feature分支名。
-
-
-
-
-
-**gif release**（亦可简写为**fr**）
-
-
-
-功能：
-
-
-
-（1）从develop拉取release分支，开始集成测试；
-
-（2）完成测试，合并到master分支（并打tag）和develop分支。
-
-
-
-示例：
-
-
-
->$ ==fr== 7.0.0 ==go==
-
->$ ==fr== 7.0.0 ==ok==
-
-
-
-Notes：上述命令中的"7.0.0"为待发布版本号。
-
-
-
-**gif bugfix**（亦可简写为**fb**）
-
-
-
-功能：
-
-
-
-（1）从release拉取bugfix分支，修复bug；
-
-（2）完成修复，合并回release分支。
-
-
-
-示例：
-
-
-
-> $ ==fb== MGV6-1234 ==go==
-
-
-
-> $ ==fb== MGV6-1234 ==ok==
-
-
-
-Notes：上述命令中的“MGV6-1234”为BugID.
-
-
-
-**gif hotfix**（亦可简写为**fh**）
-
-
-
-功能：
-
-
-
-（1）从master拉取hotfix分支，开始修复线上bug；
-
-（2）完成修复，合并回master分支。
-
-
-
-示例：
-
-
-
->$ ==fh== crash ==go==
-
-
-
->$ ==fh== crash ==ok==
-
-
-
-
-
-##gitz工具##
-
-gitz工具集的使用场景：多人协作于同一分支（协作开发同一feature、sub-feature，协作修改同一bugfix，hotfix）
-
-
-
-**gitz pull**
-
-
-
-从当前personal分支的上级分支拉取更新
-
-
-
-**gitz push**
-
-
-
-向当前personal分支的上级分支合并修改
-
-
-
-**gitz request**
-
-
-
-直接在命令行页面提起pull request，不需要打开Bitbucket创建pull request，提请成功会出现弹窗提示。
-
-
-
-**git sub**
-
-
-
-从上级分支切换到personal分支
-
-
-
-**git super**
-
-
-
-从当前的personal分支切换到上级分支
-
-
-
-**git remove**
-
-
-
-从本地和远程移除名为XXX的分支
 
 
 
